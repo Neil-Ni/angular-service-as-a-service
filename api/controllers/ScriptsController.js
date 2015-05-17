@@ -7,7 +7,15 @@
 
 module.exports = {
   create : function (req, res) {
-    return res.send(req.body);
+    angularserver.runInContext(
+      function (injector) {
+        var $rootScope = injector.get('$rootScope');
+        var $interpolate = injector.get('$interpolate');
+        $rootScope.name = req.body.name;
+        var greeting = $interpolate('Hello, {{name}}')($rootScope);
+        res.end(greeting);
+      }
+    );
   }
 };
 

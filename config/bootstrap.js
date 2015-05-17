@@ -31,7 +31,7 @@ module.exports.bootstrap = function(cb) {
     // application.
     serverScripts: [
       'vendor/angular/angular.js',
-      'vendor/angular/angular-route.js'
+      'common.js'
     ],
 
     // Scripts that should be loaded by the client browser to render the page.
@@ -44,7 +44,7 @@ module.exports.bootstrap = function(cb) {
     // the server. 'ng' is included here by default, along with the
     // special AngularJS-Server overrides of 'ng'.
     angularModules: [
-      'test'
+      'simpleapp'
     ]
   });
 
